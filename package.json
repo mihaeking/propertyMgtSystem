@@ -9,9 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.1.0",
     "axios": "^1.7.9",
+    "bcryptjs": "^2.4.3",
+    "ekilirelay": "^1.0.3",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.469.0",
+    "moment": "^2.30.1",
     "mysql2": "^3.12.0",
     "next": "15.1.3",
+    "next-auth": "^4.24.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
