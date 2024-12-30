@@ -12,6 +12,7 @@
     "@prisma/client": "^6.1.0",
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
     "ekilirelay": "^1.0.3",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.469.0",

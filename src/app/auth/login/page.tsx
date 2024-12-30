@@ -33,6 +33,7 @@ export default function LoginPage() {
         setError(data.error || "Invalid credentials.");
       }
     } catch (err) {
+      console.log(err)
       setError("Unable to log in. Please try again.");
     }
   };
