@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
 export async function GET(req: Request) {
-  const token = req.cookies.get("token")?.value;
+  const token = localStorage.getItem("token");
 
   if (!token) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

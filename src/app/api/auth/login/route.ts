@@ -22,6 +22,7 @@ export async function POST(req: Request) {
   );
 
   const response = NextResponse.json({ message: "Login successful" });
+  localStorage.setItem("token", token);
   response.cookies.set("token", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
