@@ -8,7 +8,7 @@ export default function RegisterPage() {
     name: "",
     email: "",
     password: "",
-    role: "tenant", // Default role
+    role: "tenant", // The Default Role
   });
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -29,7 +29,7 @@ export default function RegisterPage() {
       });
 
       if (res.ok) {
-        router.push("/login");
+        router.push("/auth/login");
       } else {
         const data = await res.json();
         setError(data.error || "Something went wrong.");
