@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model payments {
+  id           Int              @id @default(autoincrement())
+  tenant_id    Int?
+  property_id  Int?
+  amount       Decimal?         @db.Decimal(10, 2)
+  payment_date DateTime?        @db.Date
+  status       payments_status? @default(completed)
+  users        users?           @relation(fields: [tenant_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "payments_ibfk_1")
+  properties   properties?      @relation(fields: [property_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "payments_ibfk_2")
+
+  @@index([property_id], map: "property_id")
+  @@index([tenant_id], map: "tenant_id")
+}
+
+model properties {
+  id         Int                @id @default(autoincrement())
+  owner_id   Int?
+  name       String?            @db.VarChar(100)
+  size       String?            @db.VarChar(50)
+  price      Decimal?           @db.Decimal(10, 2)
+  status     properties_status? @default(pending)
+  created_at DateTime           @default(now()) @db.Timestamp(0)
+  payments   payments[]
+  users      users?             @relation(fields: [owner_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "properties_ibfk_1")
+
+  @@index([owner_id], map: "owner_id")
+}
+
+model users {
+  id         Int          @id @default(autoincrement())
+  name       String?      @db.VarChar(100)
+  email      String?      @unique(map: "email") @db.VarChar(100)
+  password   String?      @db.VarChar(255)
+  role       users_role?
+  created_at DateTime     @default(now()) @db.Timestamp(0)
+  payments   payments[]
+  properties properties[]
+}
+
+enum users_role {
+  owner
+  tenant
+  admin
+}
+
+enum payments_status {
+  completed
+  failed
+}
+
+enum properties_status {
+  pending
+  verified
+  rejected
+}
