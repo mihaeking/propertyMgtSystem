@@ -49,7 +49,7 @@ export default function LoginPage() {
           value={form.email}
           onChange={handleInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full dark:text-black p-2 border rounded"
         />
         <input
           type="password"
@@ -58,7 +58,7 @@ export default function LoginPage() {
           value={form.password}
           onChange={handleInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full dark:text-black p-2 border rounded"
         />
         {error && <p className="text-red-500">{error}</p>}
         <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">

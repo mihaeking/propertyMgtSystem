@@ -50,7 +50,7 @@ export default function RegisterPage() {
           value={form.name}
           onChange={handleInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full dark:text-black p-2 border rounded"
         />
         <input
           type="email"
@@ -59,7 +59,7 @@ export default function RegisterPage() {
           value={form.email}
           onChange={handleInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full dark:text-black p-2 border rounded"
         />
         <input
           type="password"
@@ -68,14 +68,14 @@ export default function RegisterPage() {
           value={form.password}
           onChange={handleInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full dark:text-black p-2 border rounded"
         />
         <select
           name="role"
           value={form.role}
           onChange={handleInputChange}
           required
-          className="w-full p-2 border rounded"
+          className="w-full dark:text-black p-2 border rounded"
         >
           <option value="tenant">Tenant</option>
           <option value="owner">Owner</option>
