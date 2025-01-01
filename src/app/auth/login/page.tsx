@@ -137,7 +137,7 @@ export default function LoginPage() {
           className="hidden md:flex w-1/2 bg-cover bg-center p-6 m-2 rounded-lg"
           style={{
             backgroundImage:
-              'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/real-estate.jpg")',
+              'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/bg-1.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             flex: 1,
