@@ -55,7 +55,7 @@ export default function RegisterPage() {
             flex: 1,
           }}
         >
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-1 flex-col justify-between">
             <h1 className="text-white font-bold text-5xl">Join Us Today</h1>
             <p className="text-neutral-300">
               Sign up and start exploring properties with ease and confidence.
@@ -64,7 +64,7 @@ export default function RegisterPage() {
         </div>
 
         {/* Right Section */}
-        <div className="w-full md:w-1/2 p-12 flex flex-col justify-center">
+        <div className="w-full flex-2 md:w-1/2 p-12 flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-neutral-900 dark:text-white">
             Create an Account
           </h2>
