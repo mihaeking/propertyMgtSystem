@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import mailer from "../../../../lib/mailer";
 
 export default function LoginPage() {
   const [form, setForm] = useState({
@@ -40,6 +41,7 @@ export default function LoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      mailer('receiver@example.com', 'Subject', 'Message body', 'Sender Name', 'sender@example.com');
 
       if (res.ok) {
         router.push("/dashboard");
@@ -100,7 +102,7 @@ export default function LoginPage() {
               <label className="flex items-center text-neutral-600 dark:text-neutral-400">
                 <input
                   type="checkbox"
-                  className="form-checkbox h-4 w-4 text-blue-500"
+                  className="form-checkbox h-4 w-4 text-green-700"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
                 />
@@ -116,7 +118,7 @@ export default function LoginPage() {
             {error && <p className="text-red-500">{error}</p>}
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-yellow-500 transition"
+              className="w-full bg-accent text-white py-2 rounded-lg hover:bg-olive-700 transition"
             >
               Sign In
             </button>
