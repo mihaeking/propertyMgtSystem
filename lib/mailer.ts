@@ -1,6 +1,6 @@
 import EkiliRelay from "ekilirelay";
 
-const ekilirelay = new EkiliRelay(process.env.RELAY_API || "");
+const ekilirelay = new EkiliRelay(process.env.RELAY_API_KEY || "");
 
 export default function mailer(
   receiverEmail: string, 
