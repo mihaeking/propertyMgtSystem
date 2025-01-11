@@ -74,8 +74,7 @@ export default function LoginPage() {
             <div
                 className="flex flex-col md:flex-row h-full w-full max-w-5xl rounded-lg overflow-hidden shadow-lg bg-white dark:bg-neutral-800">
                 <div
-                    className="w-full md:w-1/2 p-12 flex flex-col justify-center"
-                    style={{flex: 2}}
+                    className="w-full md:w-1/2 p-12 flex flex-col justify-center flex-2"
                 >
                     <h2 className="text-4xl font-bold text-neutral-900 dark:text-white">
                         Welcome Back
@@ -150,14 +149,7 @@ export default function LoginPage() {
                 </div>
 
                 <div
-                    className="hidden md:flex w-1/2 bg-cover bg-center p-6 m-2 rounded-lg"
-                    style={{
-                        backgroundImage:
-                            'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/bg-1.jpg")',
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        flex: 1,
-                    }}
+                    className="hidden md:flex w-1/2 bg-cover bg-center p-6 m-2 rounded-lg bg-image"
                 >
                     <div className="flex flex-col justify-between">
                         <h1 className="text-white font-bold text-5xl">Real Estate Hub</h1>
