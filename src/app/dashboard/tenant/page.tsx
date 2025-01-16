@@ -39,6 +39,10 @@ const TenantDashboard = () => {
             <li className="mb-2 text-gray-600">Maintenance request: Plumbing issue</li>
           </ul>
         </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-800">Overview</h2>
+          
+        </div>
       </main>
     </div>
   );
