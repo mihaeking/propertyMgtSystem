@@ -1,5 +1,13 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import { Montserrat } from 'next/font/google';
+import dynamic from 'next/dynamic';
+
+const montserrat = Montserrat({ subsets: ['latin'] });
+
+const Scene = dynamic(() => import('@/app/components/scene'), { ssr: false });
 
 export default function Home() {
   return (
@@ -78,3 +86,4 @@ export default function Home() {
     </div>
   );
 }
+
