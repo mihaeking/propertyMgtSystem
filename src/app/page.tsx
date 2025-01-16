@@ -1,51 +1,12 @@
-'use client'
-
-import Image from "next/image";
-import Link from "next/link";
-import { Montserrat } from 'next/font/google';
-import dynamic from 'next/dynamic';
-
-const montserrat = Montserrat({ subsets: ['latin'] });
-
+import { NavBar } from "./components/nav-bar"
+import { HeroSection } from "./components/hero-section"
 
 export default function Home() {
   return (
-    <div>
-      <div className="bg-blue-500 bg-opacity-50 text-black text-center py-16">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Digitized Real Estate</h1>
-        <p className="text-xl mb-6">
-          Manage your properties, tenants, and transactions effortlessly.
-        </p>
-        <Link href="/register">
-          <button className="px-6 py-2 bg-white text-blue-600 font-semibold rounded shadow hover:bg-gray-200">
-            Get Started
-          </button>
-        </Link>
-      </div>
-      <div className="flex flex-row ">
-        <Image
-        src="/img1.jpg"
-        alt="Picture of the houses"
-        className="w-1/2"
-        width={500}
-        height={500}
-        priority
-        >
-        </Image>
+    <main>
+      <NavBar />
+      <HeroSection />
       
-        <Image
-        src="/img2.jpg"
-        alt="picture of the house"
-        className="w-1/2"
-
-        width={500}
-        height={500}
-        priority
-        >
-
-        </Image>
-      </div>
-
       <section className="py-16 bg-gray-100">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Why Choose Us?</h2>
@@ -82,7 +43,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
 
