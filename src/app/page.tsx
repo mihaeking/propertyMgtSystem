@@ -7,7 +7,6 @@ import dynamic from 'next/dynamic';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-// const Scene = dynamic(() => import('@/app/components/scene'), { ssr: false });
 
 export default function Home() {
   return (
