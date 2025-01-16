@@ -12,7 +12,7 @@ const Sidebar: React.FC<SidebarProps> = ({ links }) => {
         <h1 className="text-xl font-bold text-gray-900">Dashboard</h1>
       </div>
 
-      <div className="bg-green-500 h-full">
+      <div className="bg-blue-300 h-full">
       <nav className="mt-4  ">
       <ul>
   {links.map((link, index) => (
