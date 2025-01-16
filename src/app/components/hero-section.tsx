@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 export function HeroSection() {
   return (
     <div 
-      className="relative h-[600px] flex items-center justify-center"
+      className="relative h-[600px] flex items-center justify-start"
       style={{
         backgroundImage: `url(/img1.jpg)`,
         backgroundSize: 'cover',
