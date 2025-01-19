@@ -13,10 +13,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const user = await prisma.users.findUnique({
+    const user = await prisma.users.findFirst({
       where: { email, password },
     });
-
+ console.log(user);
     if (!user) {
       return NextResponse.json(
         { message: "Invalid email or password." },
