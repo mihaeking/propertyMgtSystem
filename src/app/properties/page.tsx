@@ -10,7 +10,7 @@ export default function PropertiesPage() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await fetch("/api/properties/fetch");
+        const response = await fetch("/api/properties");
         const data = await response.json();
         setProperties(data);
       } catch (error) {

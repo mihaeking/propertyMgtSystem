@@ -22,15 +22,15 @@ model payments {
 }
 
 model properties {
-  id         Int                @id @default(autoincrement())
-  owner_id   Int?
-  name       String?            @db.VarChar(100)
-  size       String?            @db.VarChar(50)
-  price      Decimal?           @db.Decimal(10, 2)
-  status     properties_status? @default(pending)
-  created_at DateTime           @default(now()) @db.Timestamp(0)
-  payments   payments[]
-  users      users?             @relation(fields: [owner_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "properties_ibfk_1")
+  id           Int                @id @default(autoincrement())
+  owner_id     Int?
+  propertyName String?            @db.VarChar(100)
+  Capacity     String?            @db.VarChar(50)
+  price        Decimal?           @db.Decimal(10, 2)
+  status       properties_status? @default(pending)
+  Location     String             @db.VarChar(100)
+  payments     payments[]
+  users        users?             @relation(fields: [owner_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "properties_ibfk_1")
 
   @@index([owner_id], map: "owner_id")
 }

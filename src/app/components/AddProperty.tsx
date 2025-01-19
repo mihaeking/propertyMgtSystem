@@ -4,41 +4,70 @@ const AddProperty = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
       <div className="max-w-2xl p-10 mx-auto bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">Add Property</h1>
-        <form className="space-y-4">
-          
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Add Property
+        </h1>
+        <form
+          className="space-y-4"
+          action={async (formData) => {
+            "use server";
+
+            const propertyCapacity = formData.get("propertyCapacity");
+            const propertyLocation = formData.get("propertyLocation");
+            const propertyName = formData.get("propertyName");
+
+            await fetch("http://localhost:3000/api/properties", {
+              method: "POST",
+              body: JSON.stringify({
+                name: propertyName,
+              }),
+            });
+          }}
+        >
           <div className="flex flex-col">
-            <label className="text-gray-700 font-medium mb-2">Property Name</label>
+            <label className="text-gray-700 font-medium mb-2">
+              Property Name
+            </label>
             <input
               type="text"
+              name="propertyName"
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter property name"
             />
           </div>
 
           <div className="flex flex-col">
-            <label className="text-gray-700 font-medium mb-2">Property Location</label>
+            <label className="text-gray-700 font-medium mb-2">
+              Property Location
+            </label>
             <input
               type="text"
+              name="propertyLocation"
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter property location"
             />
           </div>
 
           <div className="flex flex-col">
-            <label className="text-gray-700 font-medium mb-2">Property Capacity</label>
+            <label className="text-gray-700 font-medium mb-2">
+              Property Capacity
+            </label>
             <input
               type="text"
+              name="propertyCapacity"
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter capacity of property"
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-gray-700 font-medium mb-2">enter the ownership document</label>
+            <label className="text-gray-700 font-medium mb-2">
+              enter the ownership document
+            </label>
             <input
-             type="file" 
-             className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-             placeholder="deed of ownership"/>
+              type="file"
+              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="deed of ownership"
+            />
           </div>
           <button
             type="submit"
