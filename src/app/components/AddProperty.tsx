@@ -42,7 +42,7 @@ const AddProperty = () => {
             </label>
             <input
               type="text"
-              name="propertyLocation"
+              name="Location"
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter property location"
             />
@@ -54,12 +54,24 @@ const AddProperty = () => {
             </label>
             <input
               type="text"
-              name="propertyCapacity"
+              name="Capacity"
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter capacity of property"
             />
           </div>
+
           <div className="flex flex-col">
+            <label className="text-gray-700 font-medium mb-2">
+              Property Price
+            </label>
+            <input
+              type="text"
+              name="price"
+              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter capacity of property"
+            />
+          </div>
+          {/* <div className="flex flex-col">
             <label className="text-gray-700 font-medium mb-2">
               enter the ownership document
             </label>
@@ -68,7 +80,7 @@ const AddProperty = () => {
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="deed of ownership"
             />
-          </div>
+          </div> */}
           <button
             type="submit"
             className="w-full bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600"

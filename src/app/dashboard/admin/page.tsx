@@ -1,12 +1,18 @@
 import React from "react";
+import Image from "next/image";
 import Sidebar from "@/app/components/ui/sidebar";
 import Card from "@/app/components/card";
-import { FaBuilding, FaUsers, FaMoneyBillWave, FaClipboardList } from "react-icons/fa";
+import {
+  FaBuilding,
+  FaUsers,
+  FaMoneyBillWave,
+  FaClipboardList,
+} from "react-icons/fa";
 
 const AdminDashboard = () => {
   const adminLinks = [
     { name: "Overview", href: "/dashboard/admin" },
-    { name: "Manage Properties", href: "/dashboard/admin/properties" },
+    { name: "Manage Owners", href: "/dashboard/admin/owners" },
     { name: "Manage Tenants", href: "/dashboard/admin/tenants" },
     { name: "Reports", href: "/dashboard/admin/reports" },
   ];
@@ -14,10 +20,17 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       <Sidebar links={adminLinks} />
-      <main className="flex-1 p-6">
+      <main
+        className="flex-1 p-6 "
+        style={{
+          backgroundImage: `url(/img3.jpg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <header className="mb-6">
-          <h2 className="text-2xl font-semibold text-gray-800">
-            Admin Dashboard
+          <h2 className="text-2xl font-semibold text-gray-800 bg-white p-6 rounded-lg">
+            Welcome to Admin Dashboard
           </h2>
         </header>
 
@@ -42,6 +55,7 @@ const AdminDashboard = () => {
             value="15"
             icon={<FaClipboardList size={32} />}
           />
+          <Card title="Total Owners" value="112" icon={<FaUsers size={32} />} />
         </section>
 
         <div className="mt-6"></div>

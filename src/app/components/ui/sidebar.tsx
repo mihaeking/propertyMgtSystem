@@ -7,7 +7,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ links }) => {
   return (
-    <aside className="w-64  shadow-md bg-blue-300 flex flex-col">
+    <aside className="w-64  shadow-md bg-blue-300 bg-opacity-25 flex flex-col">
       <div className="p-6   ">
         <h1 className="text-4xl font-bold text-cyan-950">Dashboard</h1>
       </div>
