@@ -32,8 +32,21 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <form onSubmit={handleSubmit} className="w-1/3 bg-gray-100 p-6 rounded shadow-md">
+    <div
+      className="flex flex-col items-center justify-center min-h-screen"
+      style={{
+        backgroundImage: `url('/bg-2.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="w-1/3 bg-gray-100 p-6 rounded shadow-md"
+        style={{
+          backgroundImage: `url('/bg-1.jpg')`,
+        }}
+      >
         <h1 className="text-2xl font-bold mb-4">Login</h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <div className="mb-4">
