@@ -2,13 +2,16 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const router = useRouter();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -17,11 +20,19 @@ const Page = () => {
       const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, role }),
       });
 
       if (response.ok) {
-        router.push("/dashboard")
+        const data = await response.json();
+
+        if (data.user.role === "tenant") {
+          router.push("/dashhboard/tenant");
+        } else if (data.user.role === "owner") {
+          router.push("/dashboard/owner");
+        } else if (data.user.role === "admin") {
+          router.push("/dashboard/admin");
+        }
       } else {
         const errorData = await response.json();
         setError(errorData.message || "Login failed");
@@ -42,17 +53,19 @@ const Page = () => {
     >
       <form
         onSubmit={handleSubmit}
-        className="w-1/3 bg-gray-100 p-6 rounded shadow-md"
+        className="w-1/3 p-6 rounded shadow-md"
         style={{
           backgroundImage: `url('/bg-1.jpg')`,
         }}
       >
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
+        <h1 className="text-2xl font-bold mb-4">WELCOME!</h1>
+        <h2 className="font-bold mb-6">Please enter your details to sign in</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
             type="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
@@ -63,18 +76,40 @@ const Page = () => {
           <label className="block text-sm font-medium mb-1">Password</label>
           <input
             type="password"
+            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
             required
           />
         </div>
+        <div className="w-full p-2 border border-gray-300 rounded">
+          <select
+            name="roles"
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded"
+          >
+            <option value="owner">owner</option>
+            <option value="tenant">tenant</option>
+            <option value="admin">admin</option>
+          </select>
+        </div>
+
         <button
           type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white py-2 px-6 w-1/2 rounded ml-28 my-5 hover:bg-blue-600"
         >
           Login
         </button>
+        <div>
+          <p>
+            Don't have an account?{" "}
+            <Link href="/register">
+              <span className="text-blue-500 hover:underline">SIGN UP</span>
+            </Link>
+          </p>
+        </div>
       </form>
     </div>
   );
