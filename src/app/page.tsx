@@ -1,6 +1,6 @@
 import { NavBar } from "./components/nav-bar"
 import { HeroSection } from "./components/hero-section"
-import Overview from "./components/overview"
+import Overview from "./components/Overview"
 
 export default function Home() {
   return (
