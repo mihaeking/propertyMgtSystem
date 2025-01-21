@@ -1,12 +1,13 @@
 import { NavBar } from "./components/nav-bar"
 import { HeroSection } from "./components/hero-section"
+import Overview from "./components/overview"
 
 export default function Home() {
   return (
     <main>
       <NavBar />
       <HeroSection />
-      
+      <Overview />
       <section className="py-16 bg-gray-100">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">Why Choose Us?</h2>
