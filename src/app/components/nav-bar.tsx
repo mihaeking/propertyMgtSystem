@@ -31,7 +31,10 @@ export function NavBar() {
         >
           Rent
         </Link>
-        <Link href="/" className="text-xl font-medium hover:text-blue-600">
+        <Link
+          href="/dashboard/tenant/rent"
+          className="text-xl font-medium hover:text-blue-600"
+        >
           Help
         </Link>
         <Link href="/login">
