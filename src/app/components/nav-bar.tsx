@@ -16,10 +16,7 @@ export function NavBar() {
         </Link>
       </div>
       <div className="flex items-center space-x-6">
-        <Link
-          href="/dashboard/owner"
-          className="text-xl font-medium hover:text-blue-600"
-        >
+        <Link href="/login" className="text-xl font-medium hover:text-blue-600">
           Manage Rentals
         </Link>
         <Link href="/" className="text-xl font-medium hover:text-blue-600">

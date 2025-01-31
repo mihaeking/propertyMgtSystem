@@ -12,6 +12,9 @@ export default function Overview() {
               key={home.id}
               title={home.title}
               image={home.image}
+              price={home.price}
+              phone={home.phone}
+              location={home.location}
               description={home.description}
             />
           ))}
