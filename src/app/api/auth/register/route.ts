@@ -30,5 +30,7 @@ export async function POST(req: Request) {
     },
   });
 
+  console.log({ id: user.id, email: user.email });
+
   return NextResponse.json({ id: user.id, email: user.email });
 }

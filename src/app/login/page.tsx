@@ -13,8 +13,11 @@ const Page = () => {
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log("handle submit is actually called");
     e.preventDefault();
     setError(null);
+
+    console.log({ email, password, role });
 
     try {
       const response = await fetch("/api/auth/login", {
@@ -90,6 +93,9 @@ const Page = () => {
             onChange={(e) => setRole(e.target.value)}
             className="w-full p-2 border border-gray-300 rounded"
           >
+            <option value="" disabled>
+              Select a role
+            </option>
             <option value="owner">owner</option>
             <option value="tenant">tenant</option>
             <option value="admin">admin</option>
@@ -98,7 +104,7 @@ const Page = () => {
 
         <button
           type="submit"
-          className="bg-blue-500 text-white py-2 px-6 w-1/2 rounded ml-28 my-5 hover:bg-blue-600"
+          className="bg-blue-500 text-white py-2 px-6 w-1/2 rounded ml-28 my-5 hover:bg-blue-900"
         >
           Login
         </button>
