@@ -30,7 +30,7 @@ const Page = () => {
         const data = await response.json();
 
         if (data.user.role === "tenant") {
-          router.push("/dashhboard/tenant");
+          router.push("/dashboard/tenant");
         } else if (data.user.role === "owner") {
           router.push("/dashboard/owner");
         } else if (data.user.role === "admin") {

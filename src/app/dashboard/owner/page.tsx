@@ -14,7 +14,14 @@ const OwnerDashboard = () => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       <Sidebar links={ownerLinks} />
-      <main className="flex-1 p-6">
+      <main
+        className="flex-1 p-6 "
+        style={{
+          backgroundImage: `url(/home2.jpg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <header className="mb-6">
           <h2 className="text-2xl font-semibold text-gray-800">
             Owner Dashboard

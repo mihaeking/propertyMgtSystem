@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     const user = await prisma.users.findFirst({
       where: { email, password },
     });
- console.log(user);
+    console.log(user);
     if (!user) {
       return NextResponse.json(
         { message: "Invalid email or password." },
@@ -24,7 +24,10 @@ export async function POST(request: Request) {
       );
     }
     return NextResponse.json(
-      { message: "Login successful!", user: { email: user.email } },
+      {
+        message: "Login successful!",
+        user: { email: user.email, role: user.role },
+      },
       { status: 200 }
     );
   } catch (error) {

@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [role, setRole] = useState("tenant"); 
+  const [role, setRole] = useState("tenant");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -40,8 +40,7 @@ const RegisterPage = () => {
         const errorData = await response.json();
         setError(errorData.message || "Registration failed");
       } else {
-        route.push("/login")
-
+        route.push("/login");
       }
     } catch (error) {
       console.error("Error during registration:", error);
@@ -58,13 +57,14 @@ const RegisterPage = () => {
         <h1 className="text-2xl font-bold mb-4">Register</h1>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         <div className="mb-4">
-        <label className="block text-sm font-medium mb-1">name</label>
-        <input type="text" 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="w-full p-2 border border-gray-300 rounded"
+          <label className="block text-sm font-medium mb-1">name</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-2 border border-gray-300 rounded"
             required
-        />
+          />
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Email</label>
@@ -87,7 +87,9 @@ const RegisterPage = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-1">Confirm Password</label>
+          <label className="block text-sm font-medium mb-1">
+            Confirm Password
+          </label>
           <input
             type="password"
             value={confirmPassword}
@@ -130,8 +132,13 @@ const RegisterPage = () => {
         >
           Register
         </button>
-        <p className="m-3">already registered? <Link rel="stylesheet" href="/login">  SIGN IN</Link></p>
-
+        <p className="m-3">
+          already registered?{" "}
+          <Link rel="stylesheet" href="/login">
+            {" "}
+            SIGN IN
+          </Link>
+        </p>
       </form>
     </div>
   );
